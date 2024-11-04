@@ -74,12 +74,12 @@ def get_comments(task_id=None, folder_id=None, limit=None, verbose=False):
 
         [
             {
-                'id': 'IEAAB3DEIMVH2X62',
-                'authorId': 'KUALDPDC',
-                'text': 'comment on task_0',
-                'updatedDate': '2024-10-18T20:51:59Z',
-                'createdDate': '2024-10-18T20:51:59Z',
-                'taskId': 'IEAAB3DEKRNBKHFW'
+                'id': 'IEBCC46DTD4A4P',
+                'authorId': 'UDWKFOAG',
+                'text': 'comment on task',
+                'updatedDate': '2023-05-15T20:51:59Z',
+                'createdDate': '2023-05-15T20:51:59Z',
+                'taskId': 'IEBCC4RRRRD6G'
             },
             ...
         ]

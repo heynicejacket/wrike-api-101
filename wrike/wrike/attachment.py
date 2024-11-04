@@ -81,8 +81,8 @@ def download_attachment(attachment_id, filepath, verbose=False):
     ]
 
     for download_info in list_of_download_urls:
-        url = download_info['data'][0]['url']                                       # extract URL str from list of dicts
-        filename = url.split('/')[-1]                                               # extract filename from URL
+        url = download_info['data'][0]['url']                                   # extract URL str from list of dicts
+        filename = url.split('/')[-1]                                           # extract filename from URL
         full_filepath = os.path.join(filepath, filename)
 
         try:
@@ -156,16 +156,16 @@ def get_attachments_in_space(space_id, slim_metadata=False, verbose=False):
     By default, returns as follows:
 
         [
-            {'id': 'IEAAB3DEIYQEBK4P', 'name': 'foo.txt', ..., 'in_type': 'folder', ..., 'in_type_title': 'folder_b'},
-            {'id': 'IEAAB3DEIYQEBK7M', 'name': 'bar.jpg', ..., 'in_type': 'folder', ..., 'in_type_title': 'folder_b'},
+            {'id': 'IEBCC46DTD4A4P', 'name': 'foo.txt', ..., 'in_type': 'folder', ..., 'in_type_title': 'folder_b'},
+            {'id': 'IEBCC46DTD4A45', 'name': 'bar.jpg', ..., 'in_type': 'folder', ..., 'in_type_title': 'folder_b'},
             ...
         ]
 
     If slim_metadata = True, returns a limited set, as follows:
 
         [
-            {'id': 'IEAAB3DEIYQEBK4P', 'name': 'foo.txt', 'in_type': 'folder', 'in_type_title': 'folder_b'},
-            {'id': 'IEAAB3DEIYQEBK7M', 'name': 'bar.jpg', 'in_type': 'folder', 'in_type_title': 'folder_b'},
+            {'id': 'IEBCC46DTD4A4P', 'name': 'foo.txt', 'in_type': 'folder', 'in_type_title': 'folder_b'},
+            {'id': 'IEBCC46DTD4A45', 'name': 'bar.jpg', 'in_type': 'folder', 'in_type_title': 'folder_b'},
             ...
         ]
 
@@ -254,6 +254,6 @@ def upload_attachment(filepath, task_id=None, folder_id=None, verbose=False):
         upload_url = WRIKE_BASE_URL + WRIKE_FOLDER_URL + f'{task_id}' + WRIKE_ATTACHMENTS_URL
     print(upload_url) if verbose else None
 
-    filename = os.path.basename(filepath)                                           # extract filename from filepath
+    filename = os.path.basename(filepath)                                       # extract filename from filepath
 
     return wrike_post_upload(url=upload_url, filepath=filepath, filename=filename, verbose=verbose)

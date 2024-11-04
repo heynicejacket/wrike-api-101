@@ -30,7 +30,7 @@ def get_audit_log(event_start=None, event_end=None, operations=None, page_size=N
     Can be executed as follows:
 
         get_wrike_audit_log(
-            event_start='2024-09-16T07:51:44Z',
+            event_start='2023-02-01T07:51:44Z',
             operations=['TaskCreated', 'InvitationSend'],
             page_size=2
         )
@@ -39,31 +39,28 @@ def get_audit_log(event_start=None, event_end=None, operations=None, page_size=N
 
         {
             'kind': 'auditLog',
-            'nextPageToken': 'ACY3YYQAAAAEOAAAAABAAAMGUAAAAAACTSZEXEM3IV6ZC',
+            'nextPageToken': 'AACTACY3YYQAAAXEM3ZC',
             'responseSize': 100000,
             'data': [
                 {
-                    'id': 'IEAAB3DENQAAAAAA6PJ7ULQ',
+                    'id': 'IEBCC46DA4E55',
                     'operation': 'TaskCreated',
-                    'userId': 'KUAGDWFO',
-                    'userEmail': 'wrikeintegrate@oneworkplace.com',
-                    'eventDate': '2024-10-17T22:55:51Z',
-                    'ipAddress': '38.128.198.145',
+                    'userId': 'UDWKFOAG',
+                    'userEmail': 'matthew@nicejacket.cc',
+                    'eventDate': '2023-10-17T22:55:51Z',
+                    'ipAddress': '44.255.128.242',
                     'objectType': 'Task',
-                    'objectName': 'Release 664041 MCA001',
-                    'objectId': 'IEAAB3DEKRNEOWOW',
+                    'objectName': 'Order released',
+                    'objectId': 'IEBCC46DA4E55',
                     'details': {
                         'Now Shared With Users': '',
                         'Now Shared With Teams': '',
-                        'Parent Folders': 'https://www.wrike.com/open.htm?id=377616455',
-                        'Work Item Link': 'https://www.wrike.com/open.htm?id=1514625494',
+                        'Parent Folders': 'https://www.wrike.com/open.htm?id=1337275616',
+                        'Work Item Link': 'https://www.wrike.com/open.htm?id=1368492816',
                         'Work Item Type': 'Task'
                     }
                 },
-                {
-                    'id': 'IEAAB3DENQAAAAAA6PJ7UMA',
-                    ...
-                }
+                ...
             ]
         }
 
@@ -157,7 +154,7 @@ def get_complete_audit_log(event_date=None, operations=None, page_size=100, max_
 
     The field 'details' is by default a dict, which appears as follows:
 
-        {'Prev Status': 'New', 'New Status': 'Completed', 'Work Item Link': 'https://www.wrike.com/open.htm?id=1430946727'}
+        {'Prev Status': 'New', 'New Status': 'Completed', 'Work Item Link': 'https://www.wrike.com/open.htm?id=5992019'}
 
     If reframe_audit_log=True,
 

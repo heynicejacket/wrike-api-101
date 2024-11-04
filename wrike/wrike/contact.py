@@ -1,5 +1,6 @@
 from wrike.core.constants import (
-    WRIKE_BASE_URL
+    WRIKE_BASE_URL,
+    WRIKE_CONTACTS_URL
 )
 
 
@@ -39,7 +40,7 @@ def update_contact(contact_id, metadata=None, custom_fields=None, current_bill_r
     :return:                    JSON                    JSON containing updated contact details
     """
 
-    update_contact_url = WRIKE_BASE_URL + f'/contacts/{contact_id}'
+    update_contact_url = WRIKE_BASE_URL + WRIKE_CONTACTS_URL + f'{contact_id}'
     print(update_contact_url) if verbose else None
 
     payload = {}

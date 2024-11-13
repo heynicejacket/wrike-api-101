@@ -126,7 +126,7 @@ def update_user(user_id, account_id, role, external=None, verbose=False):
                 'profiles': [
                     {
                         'accountId': 'IEAAB3DE',
-                        'email': 'mrunde@wks-dev.com',
+                        'email': 'matthew@nicejacket.cc',
                         'role': 'User',
                         'external': False,
                         'admin': True,

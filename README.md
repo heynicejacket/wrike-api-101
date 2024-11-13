@@ -36,7 +36,7 @@ engine = create_engine(
 )
 ```
 
-#### chronumbo.core.sql.db_to_df()
+#### wrike.core.sql.db_to_df()
 
 While many users will have their own construction of this, this is a variant on `pd.read_sql()` with built-in error handling. Given a SQLAlchemy engine and a SQL query, returns the query as a DataFrame.
 
@@ -69,7 +69,7 @@ df_to_db(
 )
 ```
 
-#### chronumbo.core.sql.get_sql_col_types()
+#### wrike.core.sql.get_sql_col_types()
 
 Helper function to retrieve column types from SQL tables.
 

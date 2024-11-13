@@ -14,7 +14,7 @@ This, hopefully, should provide the necessary tools for both the experienced dat
 
 ## Basic implementation
 
-Test sets TBD, in `wrike.test`.
+Test sets TBD, in `wrike.test`
 
 ## Additional helper functions
 

@@ -23,7 +23,7 @@ def create_comment(text, task_id=None, folder_id=None, plain_text=True, verbose=
     :param folder_id:           str, optional           Wrike folder ID for which to create comment
     :param plain_text:          bool, optional          if True, treat comment text as plain text
     :param verbose:             bool, optional          if True, print status to terminal
-    :return:                    JSON                    JSON response with comment details
+    :return:                    JSON                    API response with comment details
     """
 
     if task_id and folder_id:
@@ -88,7 +88,7 @@ def get_comments(task_id=None, folder_id=None, limit=None, verbose=False):
     :param folder_id:           str, optional           Wrike folder ID to retrieve folder-specific comments
     :param limit:               int, optional           limit number of comments returned
     :param verbose:             bool, optional          if True, print status to terminal
-    :return:                    JSON                    JSON dict of comments based on provided parameters
+    :return:                    JSON                    API dict of comments based on provided parameters
     """
 
     if task_id and folder_id:
@@ -124,7 +124,7 @@ def update_comment(comment_id, text, plain_text=True, external_requester=None, v
     :param plain_text:          bool, optional          if True, treat comment text as plain text
     :param external_requester:  dict, optional          external requester information in case of email comments
     :param verbose:             bool, optional          if True, print status to terminal
-    :return:                    JSON                    JSON response with comment details
+    :return:                    JSON                    API response with comment details
     """
 
     update_comment_url = WRIKE_BASE_URL + WRIKE_COMMENTS_URL + f'{comment_id}'

@@ -70,7 +70,7 @@ def get_audit_log(event_start=None, event_end=None, operations=None, page_size=N
     :param page_size:           int, optional           number of records per page to fetch
     :param next_page_token:     str, optional           token to fetch the next page of results, if paginated
     :param verbose:             bool, optional          if True, print status to terminal
-    :return:
+    :return:                    JSON                    API response containing audit log
     """
 
     audit_log_url = WRIKE_BASE_URL + WRIKE_AUDIT_URL
@@ -95,15 +95,29 @@ def get_audit_log(event_start=None, event_end=None, operations=None, page_size=N
 
 def get_audit_log_subset(next_page_token=None, event_date=None, operations=None, page_size=100, verbose=False):
     """
-    Pulls a subset of Wrike audit log based on nextPageToken.
+    Retrieves a subset of the Wrike audit log based on specified filtering criteria and pagination token.
 
-    :param next_page_token:
-    :param event_date:
-    :param operations:
-    :param page_size:
+    This function uses either a provided 'next_page_token' for pagination or an 'event_date' range and a list of
+    'operations' to filter the results. If successful, it returns the retrieved log data as a DataFrame and the next
+    page token for continued pagination.
+
+    event_date dict should be composed as follows:
+
+        {'start': 'YYYY-MM-DDTHH:MM:SSZ', 'end': 'YYYY-MM-DDTHH:MM:SSZ'}
+
+    operations list should be composed as follows:
+
+        ['CREATE', 'DELETE']
+
+    :param next_page_token:     str, optional           token to retrieve next page of results; overrides event_date
+    :param event_date:          dict, optional          dict specifying date range with start and end keys
+    :param operations:          list, optional          list of strings indicating specific operations to filter down to
+    :param page_size:           int, optional           max number of results to return per page; default 100
     :param verbose:             bool, optional          if True, print status to terminal
-    :return:
+    :return:                    tuple                   df with subset of audit log entries
+                                                        next_token (str or None) to retrieve next page of results
     """
+
     url = WRIKE_BASE_URL + WRIKE_AUDIT_URL
     print(url) if verbose else None
 
@@ -156,13 +170,14 @@ def get_complete_audit_log(event_date=None, operations=None, page_size=100, max_
 
         {'Prev Status': 'New', 'New Status': 'Completed', 'Work Item Link': 'https://www.wrike.com/open.htm?id=5992019'}
 
-    If reframe_audit_log=True,
+    If reframe_audit_log=True, breaks dicts within DataFrame columns into their own columns, where the new column name
+    is the key, and the data in the field is the dict's associated value.
 
     :param event_date:          dict, optional          dict with 'start' and 'end' for date range (semi-open interval)
     :param operations:          list, optional          list of operations to filter
     :param page_size:           int, optional           number of results to retrieve per page (default 100)
     :param max_iterations:      int, optional           maximum number of iterations (pages) to retrieve
-    :param reframe:             bool, optional
+    :param reframe:             bool, optional          if True, reframes audit log dicts into columns
     :param verbose:             bool, optional          if True, print status to terminal
     :return:                    df                      full audit log as a DataFrame
     """
@@ -212,7 +227,7 @@ def reframe_audit_log(audit_df, details_col='details', event_col='event', descri
     :param event_col:           str, optional           name of new column for dict keys
     :param description_col:     str, optional           name of new column for dict values
     :param verbose:             bool, optional          if True, print status to terminal
-    :return:                                            transformed dataframe with exploded dictionary values
+    :return:                    df                      transformed dataframe with exploded dictionary values
     """
 
     df = audit_df[audit_df[details_col].apply(lambda x: isinstance(x, dict))]   # ensure 'details' col contains dicts

@@ -232,7 +232,7 @@ def create_folder(space_or_folder_id, title, description=None, shareds=None, met
     :param user_access_roles:   dict, optional          user IDs and corresponding access roles
     :param with_invitations:    bool, optional          if True, include invitations in ownerIds and sharedIds list
     :param verbose:             bool, optional          if True, print status to terminal
-    :return:                    dict                    API response, with details of the created folder
+    :return:                    JSON                    API response, with details of the created folder
     """
 
     create_folder_url = WRIKE_BASE_URL + WRIKE_CREATE_FOLDER_URL.format(space_or_folder_id)
@@ -340,7 +340,7 @@ def create_project(space_or_folder_id, title, description=None, shareds=None, me
     :param user_access_roles:   dict, optional          user IDs and corresponding access roles
     :param with_invitations:    bool, optional          if True, include invitations in ownerIds and sharedIds list
     :param verbose:             bool, optional          if True, print status to terminal
-    :return:                    dict                    API response, with details of created project
+    :return:                    JSON                    API response, with details of created project
     """
 
     create_project_url = WRIKE_BASE_URL + WRIKE_CREATE_FOLDER_URL.format(space_or_folder_id)
@@ -414,7 +414,7 @@ def delete_folder_or_project(folder_or_project_id, verbose=False):
 
     :param folder_or_project_id:    str, required       ID of folder or project to be deleted
     :param verbose:                 bool, optional      if True, print status to terminal
-    :return:                        dict                API response with details of deleted folder or project
+    :return:                        JSON                API response with details of deleted folder or project
     """
 
     delete_url = WRIKE_BASE_URL + WRIKE_UPDATE_OR_DELETE_FOLDER_URL + f'{folder_or_project_id}'
@@ -452,7 +452,7 @@ def extract_folder_or_project_hierarchy(data, base_keys=None, additional_keys=No
     :param base_keys:           list, optional          if not None, uses default list of keys
     :param additional_keys:     list, optional          list of additional keys for retaining key-value pairs
     :param verbose:             bool, optional          if True, print status to terminal
-    :return:                    list                    list of dicts of only 'id', 'title', 'level' key-value pairs
+    :return:                    JSON                    list of dicts of only 'id', 'title', 'level' key-value pairs
     """
 
     if base_keys is None:
@@ -486,7 +486,7 @@ def folder_level_map(folder_metadata, verbose=False):
 
     :param folder_metadata:     list, required          folder metadata list of dicts
     :param verbose:             bool, optional          if True, print status to terminal
-    :return:
+    :return:                    dict                    dict of folder IDs and levels
     """
 
     folder_level_map = {folder['id']: folder['level'] for folder in folder_metadata}
@@ -508,10 +508,10 @@ def get_folder_or_project_dict(space_id, additional_keys=None, verbose=False):
             ...
         ]
 
-    :param space_id:
-    :param additional_keys:
+    :param space_id:            str, required           ID of space to retrieve folder or project IDs
+    :param additional_keys:     list, optional          if not None, additional keys to return in JSON
     :param verbose:             bool, optional          if True, print status to terminal
-    :return:
+    :return:                    JSON                    API response of folder or project metadata
     """
 
     space_metadata = get_folder_or_project_metadata(space_id=space_id, get_projects=None, verbose=verbose)
@@ -623,7 +623,7 @@ def get_folder_or_project_metadata(space_id, get_projects=None, verbose=False):
     Returns the Wrike folder dict with these added values.
 
     :param space_id:            str, required           Wrike space ID from which to retrieve metadata
-    :param get_projects:        bool, required
+    :param get_projects:        bool, required          if True, returns projects, if False, returns folders, else both
     :param verbose:             bool, optional          if True, print status to terminal
     :return:                    dict                    processed Wrike folder dict
     """
@@ -736,7 +736,7 @@ def update_folder(folder_id, title=None, description=None, add_parents=None, rem
     :param user_access_roles:   dict, optional          user IDs and corresponding access roles
     :param with_invitations:    bool, optional          if True, include invitations in ownerIds and sharedIds list
     :param verbose:             bool, optional          if True, print status to terminal
-    :return:                    dict                    API response, with details of updated folder
+    :return:                    JSON                    API response, with details of updated folder
     """
 
     update_folder_url = WRIKE_BASE_URL + WRIKE_UPDATE_OR_DELETE_FOLDER_URL.format(folder_id)
@@ -873,7 +873,7 @@ def update_project(project_id, title=None, description=None, add_parents=None, r
     :param user_access_roles:   dict, optional          user IDs and corresponding access roles
     :param with_invitations:    bool, optional          if True, include invitations in ownerIds and sharedIds list
     :param verbose:             bool, optional          if True, print status to terminal
-    :return:                    dict                    API response with details of the updated project
+    :return:                    JSON                    API response with details of the updated project
     """
 
     update_project_url = WRIKE_BASE_URL + WRIKE_UPDATE_OR_DELETE_FOLDER_URL.format(project_id)

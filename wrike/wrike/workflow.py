@@ -12,14 +12,14 @@ from wrike.core.constants import (
 
 def create_workflow(workflow_name, verbose=False):
     """
-
+    Given a workflow name, creates a new workflow in Wrike.
 
     Wrike workflows must be created before they are modified or populated with additional fields, as the workflow ID
     is required for this process.
 
-    :param workflow_name:
+    :param workflow_name:       str, required           name of Wrike workflow to create
     :param verbose:             bool, optional          if True, print status to terminal
-    :return:
+    :return:                    JSON                    API response containing workflow metadata
     """
 
     workflow_url = WRIKE_BASE_URL + WRIKE_WORKFLOWS_URL                     # 'https://www.wrike.com/api/v4/workflows'
@@ -109,9 +109,9 @@ def get_workflow_metadata(return_all=False, verbose=False):
     Retrieves all workflows from Wrike for the entire account. Wrike does not support limiting workflows to a single
     space, so this function retrieves all custom workflows available across the account.
 
-    :param return_all:
+    :param return_all:          bool, optional          if True, only return data dict; else, entire json dict
     :param verbose:             bool, optional          if True, print status to terminal
-    :return:
+    :return:                    JSON                    API response containing workflow metadata
     """
 
     workspace_url = WRIKE_BASE_URL + WRIKE_WORKFLOWS_URL
@@ -139,13 +139,20 @@ def get_workflow_name(workflow_id, verbose=False):
 
 def update_workflow(workflow_id, name=None, hidden=None, custom_status=None, verbose=False):
     """
+    Updates a Wrike workflow with new attributes such as name, visibility, and custom statuses.
 
-    :param workflow_id:
-    :param name:
-    :param hidden:
-    :param custom_status:
+    This function sends a PUT request to the Wrike API to modify the properties of an existing workflow.
+    It allows optional updates to the workflow's name, visibility (hidden), and custom status list.
+
+    custom_status list of dicts specifies custom statuses to update within the workflow. Each dictionary should define
+    a custom status with necessary details like 'id', 'name', or other attributes as required by the Wrike API.
+
+    :param workflow_id:         str, required           ID of workflow to update
+    :param name:                str, optional           new name for workflow; if not provided, name remains unchanged
+    :param hidden:              bool, optional          if True, sets workflow to hidden; if False, sets to visible
+    :param custom_status:       JSON, optional          custom statuses to update within workflow
     :param verbose:             bool, optional          if True, print status to terminal
-    :return:
+    :return:                    JSON                    API response containing updated workflow details
     """
 
     update_workflow_url = WRIKE_BASE_URL + WRIKE_WORKFLOWS_URL + f'{workflow_id}'

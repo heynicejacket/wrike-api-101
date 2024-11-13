@@ -120,7 +120,7 @@ def get_space_metadata(space_id='', return_all=False, verbose=False):
     :param space_id:            str, optional           Wrike space ID to retrieve metadata from; if '', return all spaces
     :param return_all:          bool, optional          if True, only return data dictionary
     :param verbose:             bool, optional          if True, print status to terminal
-    :return:                    JSON                    nested dict of space metadata
+    :return:                    JSON                    API response of space metadata
     """
 
     space_url = WRIKE_BASE_URL + WRIKE_SPACE_URL + f'{space_id}'
@@ -135,7 +135,7 @@ def get_space_name(space_id, verbose=False):
 
     :param space_id:            str, required           Wrike space ID to retrieve metadata from
     :param verbose:             bool, optional          if True, print status to terminal
-    :return:
+    :return:                    str                     name of Wrike space
     """
 
     space_dict = get_space_metadata(space_id=space_id)
@@ -152,7 +152,7 @@ def get_space_id(space_title, verbose=False):
 
     :param space_title:         str, required           space name to retrieve metadata from
     :param verbose:             bool, optional          if True, print status to terminal
-    :return:
+    :return:                    str                     ID of Wrike space
     """
 
     space_dict = get_space_metadata()

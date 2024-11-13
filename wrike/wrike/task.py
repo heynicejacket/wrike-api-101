@@ -241,8 +241,8 @@ def get_task_metadata(space_id=None, folder_id=None, slim_metadata=False, verbos
     If space_id and folder_id are both None, returns all tasks in account.
 
     :param space_id:            str, optional           Wrike space ID to retrieve metadata from; if '', return all spaces
-    :param folder_id:           str, optional
-    :param slim_metadata:       bool, optional
+    :param folder_id:           str, optional           Wrike folder ID to retrieve metadata from
+    :param slim_metadata:       bool, optional          if True, returns a limited JSON dict
     :param verbose:             bool, optional          if True, print status to terminal
     :return:                    list                    tasks metadata as list of dicts
     """

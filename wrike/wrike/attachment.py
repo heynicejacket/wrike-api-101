@@ -36,7 +36,7 @@ def delete_attachment(attachment_id, verbose=False):
 
     :param attachment_id:       str, required           ID of attachment to be deleted
     :param verbose:             bool, optional          if True, print status to terminal
-    :return:                    JSON                    JSON response
+    :return:                    JSON                    API response
     """
 
     delete_url = WRIKE_BASE_URL + WRIKE_ATTACHMENTS_URL + f'{attachment_id}'
@@ -110,7 +110,7 @@ def get_attachments(folder_id=None, task_id=None, versions=None, created_date_st
     :param created_date_end:    str, optional           end of created date range (format: yyyy-MM-dd'T'HH:mm:ss'Z')
     :param with_urls:           bool, optional          if True, includes URLs for attachments
     :param verbose:             bool, optional          if True, print status to terminal
-    :return:                    dict                    API response containing attachments data
+    :return:                    JSON                    API response containing attachments data
     """
 
     try:
@@ -169,10 +169,10 @@ def get_attachments_in_space(space_id, slim_metadata=False, verbose=False):
             ...
         ]
 
-    :param space_id:
-    :param slim_metadata:
+    :param space_id:            str, required           ID of space to retrieve attachments from
+    :param slim_metadata:       bool, optional          if True, returns a limited JSON dict
     :param verbose:             bool, optional          if True, print status to terminal
-    :return:
+    :return:                    JSON                    API response of attachment data
     """
 
     folder_and_project_dict = get_folder_or_project_dict(
@@ -215,14 +215,15 @@ def get_attachments_in_space(space_id, slim_metadata=False, verbose=False):
 
 def update_attachment(attachment_id, filepath, filename, verbose=False):
     """
+    Given the ID of an existing attachment and filepath and name of new attachment, replaces existing attachment.
 
-    Updating an attachment changes its attachment_id; after
+    Updating an attachment changes its attachment_id; retrieve new attachment ID from JSON dict for new attachment ID.
 
-    :param attachment_id:
+    :param attachment_id:       str, required           ID of attachment to update
     :param filepath:            str, required           local filepath of file to be updated (e.g. 'C:\...\file.xlsx')
     :param filename:            str, required           name of file to be updated
     :param verbose:             bool, optional          if True, print status to terminal
-    :return:                    dict                    API response in JSON format
+    :return:                    JSON                    API response in JSON format
     """
 
     update_url = WRIKE_BASE_URL + WRIKE_ATTACHMENTS_URL + f'{attachment_id}'

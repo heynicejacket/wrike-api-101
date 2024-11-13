@@ -31,7 +31,7 @@ def wrike_get(url, return_response=False, return_all=False, get_projects=None, p
     """
     Helper function to send GET request to the specified Wrike API endpoint with the provided payload.
 
-    By default, _wrike_get() returns all content as specified by its url. For all content other than Wrike projects and
+    By default, wrike_get() returns all content as specified by its url. For all content other than Wrike projects and
     folders, get_projects should remain None. The Wrike API treats folders and projects as the same, with the latter
     having additional fields. Thus, to separate the two, we need to specify the difference in the API call.
 
@@ -40,8 +40,7 @@ def wrike_get(url, return_response=False, return_all=False, get_projects=None, p
     projects, set to None.
 
     By default, returns the entire JSON response. If return_all is True, only returns the subset of the JSON response
-    associated with the 'data' key from the JSON response. If return_response is True, returns the entire response (this
-    is necessary to
+    associated with the 'data' key from the JSON response. If return_response is True, returns the entire response.
 
     :param url:                 str, required           Wrike API URL GET request
     :param return_response:     bool, optional          if True, only return full response

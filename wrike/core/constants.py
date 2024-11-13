@@ -1,16 +1,16 @@
-ACCESS_TOKEN_WRIKE = 'your access token'                    # smartsheet api token
+ACCESS_TOKEN_WRIKE = 'your api key'                         # Wrike api key
 
 API_HEADER_UPLOAD_WRIKE = {                                 # header for attachment upload requests
     'Authorization': 'bearer ' + ACCESS_TOKEN_WRIKE
 }
 
-API_HEADER_WRIKE = {                                        # header for requests
+API_HEADER_WRIKE = {                                        # header for general requests
     'Authorization': 'bearer ' + ACCESS_TOKEN_WRIKE,
     'Content-Type': 'application/json',
     'cache-control': 'no-cache',
 }
 
-API_PREFIX_URL_WRIKE = 'https://www.wrike.com/api/v4/'      # base Wrike api url for Requests
+API_PREFIX_URL_WRIKE = 'https://www.wrike.com/api/v4/'      # base Wrike api URL for requests
 
 DTYPE_MAPPING = {
     # integer types

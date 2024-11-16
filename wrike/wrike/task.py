@@ -71,7 +71,7 @@ def add_level_to_tasks(tasks, folder_level_mapping, folder_id=None, level=None, 
     return tasks
 
 
-def create_task(folder_id, title, description=None, status=None, importance=None, dates=None, shareds=None,
+def create_task(folder_id, task_title, description=None, status=None, importance=None, dates=None, shareds=None,
                 responsibles=None, followers=None, super_tasks=None, custom_fields=None, metadata=None, follow=None,
                 priority_before=None, priority_after=None, verbose=False):
     """
@@ -84,7 +84,7 @@ def create_task(folder_id, title, description=None, status=None, importance=None
 
         create_wrike_task(
             folder_id='DBCCBM5NACG3DEI5',
-            title='New Task',
+            task_title='New Task',
             description='A new task description.',
             ...
             verbose=True
@@ -103,7 +103,7 @@ def create_task(folder_id, title, description=None, status=None, importance=None
         ]
 
     :param folder_id:           str, required           folder ID where task will be created
-    :param title:               str, required           title of task to be created
+    :param task_title:          str, required           title of task to be created
     :param description:         str, optional           description of task
     :param status:              str, optional           status of task (e.g., 'Active', 'Completed')
     :param importance:          str, optional           importance of task (e.g., 'High', 'Normal', 'Low')
@@ -125,7 +125,7 @@ def create_task(folder_id, title, description=None, status=None, importance=None
     print(create_task_url) if verbose else None
 
     payload = {
-        'title': title
+        'title': task_title
     }
 
     if description:
@@ -302,7 +302,7 @@ def get_task_metadata(space_id=None, folder_id=None, slim_metadata=False, verbos
     return list_of_tasks
 
 
-def update_task(task_id, title=None, description=None, status=None, importance=None, dates=None, add_parents=None,
+def update_task(task_id, task_title=None, description=None, status=None, importance=None, dates=None, add_parents=None,
                 remove_parents=None, add_shareds=None, remove_shareds=None, add_responsibles=None,
                 remove_responsibles=None, add_followers=None, remove_followers=None, custom_fields=None,
                 add_super_tasks=None, remove_super_tasks=None, metadata=None, verbose=False):
@@ -320,7 +320,7 @@ def update_task(task_id, title=None, description=None, status=None, importance=N
         https://www.wrike.com/api/v4/tasks/{task_id}
 
     :param task_id:                 str, required           ID of task to be updated
-    :param title:                   str, optional           new title for task
+    :param task_title:              str, optional           new title for task
     :param description:             str, optional           updated description of task
     :param status:                  str, optional           updated status of task
     :param importance:              str, optional           task importance (e.g., 'Low', 'High')
@@ -346,8 +346,8 @@ def update_task(task_id, title=None, description=None, status=None, importance=N
 
     payload = {}
 
-    if title:
-        payload['title'] = title
+    if task_title:
+        payload['title'] = task_title
     if description:
         payload['description'] = description
     if status:

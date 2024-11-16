@@ -139,8 +139,8 @@ def assign_level(folder_dict, level, id_to_folder):
             assign_level(folder_dict=id_to_folder[child_id], level=level+1, id_to_folder=id_to_folder)
 
 
-def create_folder(space_or_folder_id, title, description=None, shareds=None, metadata=None, custom_fields=None,
-                        project=None, user_access_roles=None, with_invitations=None, verbose=False):
+def create_folder(space_or_folder_id, space_title, description=None, shareds=None, metadata=None, custom_fields=None,
+                  project=None, user_access_roles=None, with_invitations=None, verbose=False):
     """
     Creates new folder within a specified parent folder in Wrike. If new folder is to be created at Space level (0th
     level) space_id is to be used in place of (parent) folder_id. Title parameter is required; the following parameters
@@ -160,7 +160,7 @@ def create_folder(space_or_folder_id, title, description=None, shareds=None, met
     Parameters to pass into this function as follows:
 
         space_or_folder_id = 'DBCCBM5NACG3DEI5'
-        title = 'Test Folder'
+        space_title = 'Test Folder'
         description = 'Description of test folder'
         shareds = ['FJDSKSA']
         metadata = [{'key': 'testMetaKey', 'value': 'testMetaValue'}]
@@ -223,7 +223,7 @@ def create_folder(space_or_folder_id, title, description=None, shareds=None, met
         }
 
     :param space_or_folder_id:  str, required           parent folder or space ID where new folder will be created
-    :param title:               str, required           title of folder to be created
+    :param space_title:         str, required           title of folder to be created
     :param description:         str, optional           description of folder to be created
     :param shareds:             list, optional          user IDs with whom to share folder (creator always shared)
     :param metadata:            list, optional          metadata entries (key-value pairs) to add to new folder
@@ -238,7 +238,7 @@ def create_folder(space_or_folder_id, title, description=None, shareds=None, met
     create_folder_url = WRIKE_BASE_URL + WRIKE_CREATE_FOLDER_URL.format(space_or_folder_id)
     print(create_folder_url) if verbose else None
 
-    payload = {'title': title, }                                            # construct required payload
+    payload = {'title': space_title, }                                            # construct required payload
 
     if description:                                                         # add optional fields if provided
         payload['description'] = description
@@ -258,7 +258,7 @@ def create_folder(space_or_folder_id, title, description=None, shareds=None, met
     return wrike_post(url=create_folder_url, payload=payload, verbose=verbose)
 
 
-def create_project(space_or_folder_id, title, description=None, shareds=None, metadata=None, custom_fields=None,
+def create_project(space_or_folder_id, project_title, description=None, shareds=None, metadata=None, custom_fields=None,
                    owner_ids=None, custom_status_id=None, start_date=None, end_date=None, contract_type=None,
                    budget=None, user_access_roles=None, with_invitations=None, verbose=False):
     """
@@ -281,7 +281,7 @@ def create_project(space_or_folder_id, title, description=None, shareds=None, me
     Parameters to pass into this function as follows:
 
         space_or_folder_id = 'DBCCBM5NACG3DEI5'
-        title = 'Test Project'
+        project_title = 'Test Project'
         description = 'Description of test project'
         shareds = ['FJDSKSA']
         metadata = [{'key': 'testMetaKey', 'value': 'testMetaValue'}]
@@ -326,7 +326,7 @@ def create_project(space_or_folder_id, title, description=None, shareds=None, me
         }
 
     :param space_or_folder_id:  str, required           parent folder or space ID where project will be created
-    :param title:               str, required           title of project to be created
+    :param project_title:       str, required           title of project to be created
     :param description:         str, optional           description of project to be created
     :param shareds:             list, optional          user IDs with whom to share project (creator always shared)
     :param metadata:            list, optional          metadata entries (key-value pairs) to add to project
@@ -346,7 +346,7 @@ def create_project(space_or_folder_id, title, description=None, shareds=None, me
     create_project_url = WRIKE_BASE_URL + WRIKE_CREATE_FOLDER_URL.format(space_or_folder_id)
     print(create_project_url) if verbose else None
 
-    payload = {'title': title, 'project': {}, }                             # construct required payload
+    payload = {'title': project_title, 'project': {}, }                             # construct required payload
 
     if description:                                                         # add optional fields if provided
         payload['description'] = description
@@ -667,9 +667,9 @@ def get_folder_or_project_name(space_id, folder_id=None, project_id=None, verbos
     return folder_or_project_name
 
 
-def update_folder(folder_id, title=None, description=None, add_parents=None, remove_parents=None,
-                        add_shareds=None, remove_shareds=None, metadata=None, custom_fields=None, project=None,
-                        user_access_roles=None, with_invitations=None, verbose=False):
+def update_folder(folder_id, space_title=None, description=None, add_parents=None, remove_parents=None,
+                  add_shareds=None, remove_shareds=None, metadata=None, custom_fields=None, project=None,
+                  user_access_roles=None, with_invitations=None, verbose=False):
     """
     Updates existing folder in Wrike. The following parameters are optional:
 
@@ -685,7 +685,7 @@ def update_folder(folder_id, title=None, description=None, add_parents=None, rem
     Parameters to pass into this function, as follows:
 
         folder_id = 'DBCCBM5NACG3DEI5'
-        title = 'Updated Folder Title'
+        space_title = 'Updated Folder Title'
         description = 'Updated folder description'
         add_parents = ['DBCCBM5NACG3DEI5']
         remove_parents = ['DBCCBM5NACG3DEI5']
@@ -724,7 +724,7 @@ def update_folder(folder_id, title=None, description=None, add_parents=None, rem
         }
 
     :param folder_id:           str, required           ID of folder to be updated
-    :param title:               str, optional           new title for folder
+    :param space_title:         str, optional           new title for folder
     :param description:         str, optional           updated description of folder
     :param add_parents:         list, optional          parent folder IDs to add
     :param remove_parents:      list, optional          parent folder IDs to remove
@@ -744,8 +744,8 @@ def update_folder(folder_id, title=None, description=None, add_parents=None, rem
 
     payload = {}                                                            # construct required payload
 
-    if title:                                                               # add optional fields if provided
-        payload['title'] = title
+    if space_title:                                                               # add optional fields if provided
+        payload['title'] = space_title
     if description:
         payload['description'] = description
     if add_parents:
@@ -770,7 +770,7 @@ def update_folder(folder_id, title=None, description=None, add_parents=None, rem
     return wrike_put(url=update_folder_url, payload=payload, verbose=verbose)
 
 
-def update_project(project_id, title=None, description=None, add_parents=None, remove_parents=None,
+def update_project(project_id, space_title=None, description=None, add_parents=None, remove_parents=None,
                    add_shareds=None, remove_shareds=None, metadata=None, custom_fields=None, owners_add=None,
                    owners_remove=None, custom_status_id=None, start_date=None, end_date=None, contract_type=None,
                    budget=None, user_access_roles=None, with_invitations=None, verbose=False):
@@ -786,7 +786,7 @@ def update_project(project_id, title=None, description=None, add_parents=None, r
     Parameters to pass into this function, as follows:
 
         project_id = 'DBCCBM5NACG3DEI5'
-        title = 'Updated Project Title'
+        space_title = 'Updated Project Title'
         description = 'Updated project description'
         add_parents = ['DBCCBM5NACG3DEI5']
         remove_parents = ['DBCCBM5NACG3DEI5']
@@ -855,7 +855,7 @@ def update_project(project_id, title=None, description=None, add_parents=None, r
         }
 
     :param project_id:          str, required           ID of project to be updated
-    :param title:               str, optional           new title for project
+    :param space_title:         str, optional           new title for project
     :param description:         str, optional           updated description of project
     :param add_parents:         list, optional          parent folder IDs to add
     :param remove_parents:      list, optional          parent folder IDs to remove
@@ -881,8 +881,8 @@ def update_project(project_id, title=None, description=None, add_parents=None, r
 
     payload = {}                                                            # construct required payload
 
-    if title:                                                               # add optional fields if provided
-        payload['title'] = title
+    if space_title:                                                               # add optional fields if provided
+        payload['title'] = space_title
     if description:
         payload['description'] = description
     if add_parents:

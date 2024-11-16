@@ -137,7 +137,7 @@ def get_workflow_name(workflow_id, verbose=False):
     return workflow_name
 
 
-def update_workflow(workflow_id, name=None, hidden=None, custom_status=None, verbose=False):
+def update_workflow(workflow_id, workflow_name=None, hidden=None, custom_status=None, verbose=False):
     """
     Updates a Wrike workflow with new attributes such as name, visibility, and custom statuses.
 
@@ -148,7 +148,7 @@ def update_workflow(workflow_id, name=None, hidden=None, custom_status=None, ver
     a custom status with necessary details like 'id', 'name', or other attributes as required by the Wrike API.
 
     :param workflow_id:         str, required           ID of workflow to update
-    :param name:                str, optional           new name for workflow; if not provided, name remains unchanged
+    :param workflow_name:       str, optional           new name for workflow; if not provided, name remains unchanged
     :param hidden:              bool, optional          if True, sets workflow to hidden; if False, sets to visible
     :param custom_status:       JSON, optional          custom statuses to update within workflow
     :param verbose:             bool, optional          if True, print status to terminal
@@ -160,8 +160,8 @@ def update_workflow(workflow_id, name=None, hidden=None, custom_status=None, ver
 
     payload = {}
 
-    if name is not None:
-        payload['name'] = name
+    if workflow_name is not None:
+        payload['name'] = workflow_name
     if hidden is not None:
         payload['hidden'] = hidden
     if custom_status is not None:

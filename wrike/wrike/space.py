@@ -12,7 +12,7 @@ from wrike.core.constants import (
 )
 
 
-def create_space(access_type, title, description=None, members=None, guest_role_id=None,
+def create_space(access_type, space_title, description=None, members=None, guest_role_id=None,
                  default_project_workflow_id=None, suggested_project_workflows=None, default_task_workflow_id=None,
                  suggested_task_workflows=None, fields=None, verbose=False):
     """
@@ -25,7 +25,7 @@ def create_space(access_type, title, description=None, members=None, guest_role_
         todo: add example
 
     :param access_type:                     str, required           space type (e.g., 'Public' or 'Private')
-    :param title:                           str, required           title of space to be created
+    :param space_title:                     str, required           title of space to be created
     :param description:                     str, optional           description of space
     :param members:                         list, optional          list of dicts containing member IDs and access roles
     :param guest_role_id:                   str, optional           guest role ID (only for public spaces)
@@ -43,7 +43,7 @@ def create_space(access_type, title, description=None, members=None, guest_role_
 
     payload = {                                                             # construct required payload
         'accessType': access_type,
-        'title': title
+        'title': space_title
     }
 
     if description:                                                         # add optional fields if provided
@@ -163,7 +163,7 @@ def get_space_id(space_title, verbose=False):
     return space_id
 
 
-def update_space(space_id, title=None, description=None, access_type=None, guest_role_id=None,
+def update_space(space_id, space_title=None, description=None, access_type=None, guest_role_id=None,
                  default_project_workflow_id=None, suggested_project_workflows_add=None,
                  suggested_project_workflows_remove=None, default_task_workflow_id=None,
                  suggested_task_workflows_add=None, suggested_task_workflows_remove=None, members_add=None,
@@ -183,7 +183,7 @@ def update_space(space_id, title=None, description=None, access_type=None, guest
         https://www.wrike.com/api/v4/spaces/{space_id}
 
     :param space_id:                            str, required           ID of the space to be updated
-    :param title:                               str, optional           new title for the space
+    :param space_title:                               str, optional           new title for the space
     :param description:                         str, optional           updated description of the space
     :param access_type:                         str, optional           access type (e.g., 'Public', 'Private')
     :param guest_role_id:                       str, optional           guest role ID (available for public spaces only)
@@ -206,8 +206,8 @@ def update_space(space_id, title=None, description=None, access_type=None, guest
 
     payload = {}                                                            # construct the payload
 
-    if title:                                                               # add optional fields if provided
-        payload['title'] = title
+    if space_title:                                                               # add optional fields if provided
+        payload['title'] = space_title
     if description:
         payload['description'] = description
     if access_type:

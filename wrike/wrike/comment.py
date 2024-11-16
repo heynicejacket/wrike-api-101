@@ -74,12 +74,12 @@ def get_comments(task_id=None, folder_id=None, limit=None, verbose=False):
 
         [
             {
-                'id': 'IEBCC46DTD4A4P',
-                'authorId': 'UDWKFOAG',
+                'id': 'DBCCBM5NACG3DEI5',
+                'authorId': 'FJDSKSA',
                 'text': 'comment on task',
-                'updatedDate': '2023-05-15T20:51:59Z',
-                'createdDate': '2023-05-15T20:51:59Z',
-                'taskId': 'IEBCC4RRRRD6G'
+                'updatedDate': '2023-05-15T10:15:59Z',
+                'createdDate': '2023-05-15T10:15:59Z',
+                'taskId': 'DBCCBM5NACG3DEI5'
             },
             ...
         ]
@@ -88,7 +88,7 @@ def get_comments(task_id=None, folder_id=None, limit=None, verbose=False):
     :param folder_id:           str, optional           Wrike folder ID to retrieve folder-specific comments
     :param limit:               int, optional           limit number of comments returned
     :param verbose:             bool, optional          if True, print status to terminal
-    :return:                    JSON                    API dict of comments based on provided parameters
+    :return:                    JSON                    API response of comments based on provided parameters
     """
 
     if task_id and folder_id:

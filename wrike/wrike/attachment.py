@@ -36,7 +36,7 @@ def delete_attachment(attachment_id, verbose=False):
 
     :param attachment_id:       str, required           ID of attachment to be deleted
     :param verbose:             bool, optional          if True, print status to terminal
-    :return:                    JSON                    API response
+    :return:                    JSON                    API response in JSON format
     """
 
     delete_url = WRIKE_BASE_URL + WRIKE_ATTACHMENTS_URL + f'{attachment_id}'
@@ -156,23 +156,23 @@ def get_attachments_in_space(space_id, slim_metadata=False, verbose=False):
     By default, returns as follows:
 
         [
-            {'id': 'IEBCC46DTD4A4P', 'name': 'foo.txt', ..., 'in_type': 'folder', ..., 'in_type_title': 'folder_b'},
-            {'id': 'IEBCC46DTD4A45', 'name': 'bar.jpg', ..., 'in_type': 'folder', ..., 'in_type_title': 'folder_b'},
+            {'id': 'DBCCBM5NACG3DEI5', 'name': 'foo.txt', ..., 'in_type': 'folder', ..., 'in_type_title': 'folder_foo'},
+            {'id': 'DBCCBM5NACG3DEI6', 'name': 'bar.jpg', ..., 'in_type': 'folder', ..., 'in_type_title': 'folder_bar'},
             ...
         ]
 
     If slim_metadata = True, returns a limited set, as follows:
 
         [
-            {'id': 'IEBCC46DTD4A4P', 'name': 'foo.txt', 'in_type': 'folder', 'in_type_title': 'folder_b'},
-            {'id': 'IEBCC46DTD4A45', 'name': 'bar.jpg', 'in_type': 'folder', 'in_type_title': 'folder_b'},
+            {'id': 'DBCCBM5NACG3DEI5', 'name': 'foo.txt', 'in_type': 'folder', 'in_type_title': 'folder_foo'},
+            {'id': 'DBCCBM5NACG3DEI6', 'name': 'bar.jpg', 'in_type': 'folder', 'in_type_title': 'folder_bar'},
             ...
         ]
 
     :param space_id:            str, required           ID of space to retrieve attachments from
     :param slim_metadata:       bool, optional          if True, returns a limited JSON dict
     :param verbose:             bool, optional          if True, print status to terminal
-    :return:                    JSON                    API response of attachment data
+    :return:                    JSON                    API response in JSON format
     """
 
     folder_and_project_dict = get_folder_or_project_dict(

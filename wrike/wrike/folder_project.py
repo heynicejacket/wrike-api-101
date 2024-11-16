@@ -20,12 +20,12 @@ def add_child_kv(folder_data):
     child folder's 'id' and the value is child folder's 'title', creating a parent-child relationship for all folders,
     based on the provided child-parent hierarchy in 'childIds', as follows:
 
-        'childIds': ['IEAAB3DEI5M5NACG', ...]
+        'childIds': ['DBCCBM5NACG3DEI5', ...]
 
     Each folder will receive a 'child' key, which contains a dictionary mapping the child folder's ID to its
     title. If a folder has no children, the 'child' key will be an empty dictionary. Dictionary is as follows:
 
-        'childF':  {'IEAAB3DEI5M5NACG': 'folder_1a', ...}
+        'childF':  {'DBCCBM5NACG3DEI5': 'folder_foo', ...}
 
     Returns folder_data with 'child' key-value pair added.
 
@@ -75,12 +75,12 @@ def add_parent_kv(folder_data):
     the key is parent's 'id' and the value is parent's 'title', creating a parent-child relationship for all folders or
     projects, based on the provided child-parent hierarchy in 'childIds', as follows:
 
-        'childIds': ['IEAAB3DEI5M5NACG', ...]
+        'childIds': ['DBCCBM5NACG3DEI5', ...]
 
     Each folder or project will receive a 'parent' key, which contains a dictionary mapping the parent's ID to its
     title. If a folder or project has no parent, the 'parent' key will be an empty dictionary. Dictionary is as follows:
 
-        'parent': {'IEAAB3DEI5M5NACG': 'folder_a'}
+        'parent': {'DBCCBM5NACG3DEI5': 'folder_foo'}
 
     Returns folder_data with 'parent' key-value pair added.
 
@@ -113,11 +113,11 @@ def assign_level(folder_dict, level, id_to_folder):
     The variable folder_dict contains the dict of each folder, in turn, and appears as follows:
 
     {
-        'id': 'IEAAB3IPI5MDEM3K',
+        'id': 'DBCCBM5NACG3DEI5',
         'title': 'Folder Title',
         'scope': 'WsFolder',
         'child': {
-            'IEAAB3DEIKC5M4ND': 'folder_d',
+            'DBCCBM5NACG3DEI5': 'folder_foo',
             ...
         }
     }
@@ -155,24 +155,24 @@ def create_folder(space_or_folder_id, title, description=None, shareds=None, met
 
     URL to pass to requests.post() as follows:
 
-        https://www.wrike.com/api/v4/folders/IEAVJOU5I7777777/folders
+        https://www.wrike.com/api/v4/folders/DBCCBM5NACG3DEI5/folders
 
     Parameters to pass into this function as follows:
 
-        space_or_folder_id = 'IEAVJOU5I7777777'
+        space_or_folder_id = 'DBCCBM5NACG3DEI5'
         title = 'Test Folder'
         description = 'Description of test folder'
-        shareds = ['KUAAAABF']
+        shareds = ['FJDSKSA']
         metadata = [{'key': 'testMetaKey', 'value': 'testMetaValue'}]
-        custom_fields = [{'id': 'IEAVJOU5JUAAAACG', 'value': 'testValue'}]
+        custom_fields = [{'id': 'DBCCBM5NACG3DEI5', 'value': 'testValue'}]
         project = {
-            'ownerIds': ['KUAAAABF'],
-            'startDate': '2024-09-17',
-            'endDate': '2024-09-24',
+            'ownerIds': ['FJDSKSA'],
+            'startDate': '2023-05-11',
+            'endDate': '2023-04-27',
             'contractType': 'Billable',
             'budget': 100
         }
-        user_access_roles = {'KUAAAABF': 'IEAVJOU5ND777777'}
+        user_access_roles = {'FJDSKSA': 'DBCCBM5NACG3DEI5'}
         with_invitations = True
 
     Returned API response as follows:
@@ -181,23 +181,23 @@ def create_folder(space_or_folder_id, title, description=None, shareds=None, met
             'kind': 'folders',
             'data': [
                 {
-                    'id': 'IEAVJOU5I4AB5BKD',
-                    'accountId': 'IEAVJOU5',
+                    'id': 'DBCCBM5NACG3DEI5',
+                    'accountId': 'FJDSKSA',
                     'title': 'Test Folder',
-                    'createdDate': '2024-09-17T07:51:23Z',
-                    'updatedDate': '2024-09-17T07:51:23Z',
+                    'createdDate': '2023-07-20T07:51:23Z',
+                    'updatedDate': '2023-07-20T07:51:23Z',
                     'description': 'Description of test folder',
                     'sharedIds': [
-                        'KUAAAABF'
+                        'FJDSKSA'
                     ],
                     'parentIds': [
-                        'IEAVJOU5I4AB5BKC'
+                        'DBCCBM5NACG3DEI5'
                     ],
                     'childIds': [],
                     'scope': 'WsFolder',
                     'hasAttachments': false,
-                    'permalink': 'https://www.wrike.com/open.htm?id=2000195',
-                    'workflowId': 'IEAVJOU5K77KWRLD',
+                    'permalink': 'https://www.wrike.com/open.htm?id=12345',
+                    'workflowId': 'DBCCBM5NACG3DEI5',
                     'metadata': [
                         {
                             'key': 'testMetaKey',
@@ -206,17 +206,17 @@ def create_folder(space_or_folder_id, title, description=None, shareds=None, met
                     ],
                     'customFields': [
                         {
-                            'id': 'IEAVJOU5JUAAAACG',
+                            'id': 'DBCCBM5NACG3DEI5',
                             'value': 'testValue'
                         }
                     ],
                     'project': {
-                        'authorId': 'KUAAAABF',
+                        'authorId': 'FJDSKSA',
                         'ownerIds': [
-                            'KUAAAABF'
+                            'FJDSKSA'
                         ],
-                        'startDate': '2024-09-17',
-                        'endDate': '2024-09-24'
+                        'startDate': '2023-08-08',
+                        'endDate': '2023-08-12'
                     }
                 }
             ]
@@ -232,7 +232,7 @@ def create_folder(space_or_folder_id, title, description=None, shareds=None, met
     :param user_access_roles:   dict, optional          user IDs and corresponding access roles
     :param with_invitations:    bool, optional          if True, include invitations in ownerIds and sharedIds list
     :param verbose:             bool, optional          if True, print status to terminal
-    :return:                    JSON                    API response, with details of the created folder
+    :return:                    JSON                    API response with details of the created folder
     """
 
     create_folder_url = WRIKE_BASE_URL + WRIKE_CREATE_FOLDER_URL.format(space_or_folder_id)
@@ -276,50 +276,50 @@ def create_project(space_or_folder_id, title, description=None, shareds=None, me
 
     URL to pass to requests.post() as follows:
 
-        https://www.wrike.com/api/v4/folders/IEAVJOU5I7777777/folders
+        https://www.wrike.com/api/v4/folders/DBCCBM5NACG3DEI5/folders
 
     Parameters to pass into this function as follows:
 
-        space_or_folder_id = 'IEAVJOU5I7777777'
+        space_or_folder_id = 'DBCCBM5NACG3DEI5'
         title = 'Test Project'
         description = 'Description of test project'
-        shareds = ['KUAAAABF']
+        shareds = ['FJDSKSA']
         metadata = [{'key': 'testMetaKey', 'value': 'testMetaValue'}]
-        custom_fields = [{'id': 'IEAVJOU5JUAAAACG', 'value': 'testValue'}]
-        owner_ids = ['KUAAAABF']
-        custom_status_id = 'IEAVJOU5JMAAAAAA'
-        start_date = '2024-09-17'
-        end_date = '2024-09-24'
+        custom_fields = [{'id': 'DBCCBM5NACG3DEI5', 'value': 'testValue'}]
+        owner_ids = ['FJDSKSA']
+        custom_status_id = 'DBCCBM5NACG3DEI5'
+        start_date = '2023-02-11'
+        end_date = '2023-03-18'
         contract_type = 'Billable'
         budget = 100
-        user_access_roles = {'KUAAAABF': 'IEAVJOU5ND777777'}
+        user_access_roles = {'FJDSKSA': 'DBCCBM5NACG3DEI5'}
         with_invitations = True
 
     Returned API response as follows:
 
         {
-            'id': 'IEAAB3DEI5M5NKRM',
-            'accountId': 'IEAAB3DE',
+            'id': 'DBCCBM5NACG3DEI5',
+            'accountId': 'FJDSKSA',
             'title': 'Test Project',
-            'createdDate': '2024-10-06T22:32:37Z',
-            'updatedDate': '2024-10-06T22:44:46Z',
+            'createdDate': '2023-12-09T12:32:37Z',
+            'updatedDate': '2023-12-09T12:44:46Z',
             'description': 'Test project description',
-            'sharedIds': ['KUAFMCAH', 'KUALDPDC'],
-            'parentIds': ['IEAAB3DEI5M4KMIP'],
+            'sharedIds': ['FJDSKSA', 'FJDSKSB'],
+            'parentIds': ['DBCCBM5NACG3DEI5'],
             'childIds': [],
             'superParentIds': [],
             'scope': 'WsFolder',
             'hasAttachments': False,
-            'permalink': 'https://www.wrike.com/open.htm?id=1507240492',
-            'workflowId': 'IEAAB3DEK7776E44',
+            'permalink': 'https://www.wrike.com/open.htm?id=12345',
+            'workflowId': 'DBCCBM5NACG3DEI5',
             'metadata': [{'key': 'testMetaKey', 'value': 'testMetaValue'}],
-            'customFields': [{'id': 'IEAVJOU5JUAAAACG', 'value': 'testValue'}],
+            'customFields': [{'id': 'DBCCBM5NACG3DEI5', 'value': 'testValue'}],
             'project': {
-                'authorId': 'KUAAAABF',
-                'ownerIds': ['KUAAAABF'],
-                'customStatusId': 'IEAVJOU5JMAAAAAA',
-                'startDate': '2024-09-17',
-                'endDate': '2024-09-24',
+                'authorId': 'FJDSKSA',
+                'ownerIds': ['FJDSKSA'],
+                'customStatusId': 'DBCCBM5NACG3DEI5',
+                'startDate': '2023-06-16',
+                'endDate': '2023-06-26',
                 'contractType': 'Billable',
                 'budget': 100
             }
@@ -386,30 +386,30 @@ def delete_folder_or_project(folder_or_project_id, verbose=False):
 
     URL to pass to requests.delete(), as follows:
 
-        https://www.wrike.com/api/v4/folders/IEAVJOU5I4AB5BKC
+        https://www.wrike.com/api/v4/folders/DBCCBM5NACG3DEI5
 
     Parameters to pass into this function, as follows:
 
-        folder_or_project_id = 'IEAVJOU5I4AB5BKC'   # can be folder or project ID
+        folder_or_project_id = 'DBCCBM5NACG3DEI5'   # can be folder or project ID
 
     Returned API response in JSON, as follows:
 
         {
-            'id': 'IEAVJOU5I4AB5BKC',
-            'accountId': 'IEAVJOU5',
+            'id': 'DBCCBM5NACG3DEI5',
+            'accountId': 'FJDSKSA',
             'title': 'Deleted Folder or Project Title',
-            'createdDate': '2024-09-17T07:51:23Z',
-            'updatedDate': '2024-09-17T07:51:52Z',
+            'createdDate': '2023-09-12T07:51:23Z',
+            'updatedDate': '2023-09-12T07:51:52Z',
             'description': 'Description before deletion',
-            'sharedIds': ['KUAAAABF', 'KUAAAABG'],
-            'parentIds': ['IEAVJOU5I7777776'],
-            'childIds': ['IEAVJOU5I4AB5BKD', 'IEAVJOU5I4AB5BKE'],
-            'scope': 'RbFolder' or 'RbProject',  # Recycle bin scope
+            'sharedIds': ['FJDSKSA', 'FJDSKSB'],
+            'parentIds': ['DBCCBM5NACG3DEI5'],
+            'childIds': ['DBCCBM5NACG3DEI5', 'DBCCBM5NACG3DEI6'],
+            'scope': 'RbFolder' or 'RbProject',
             'hasAttachments': False,
-            'permalink': 'https://www.wrike.com/open.htm?id=2000194',
-            'workflowId': 'IEAVJOU5K77KWRLD',
+            'permalink': 'https://www.wrike.com/open.htm?id=12345',
+            'workflowId': 'DBCCBM5NACG3DEI5',
             'metadata': [{'key': 'testMetaKey', 'value': 'testMetaValue'}],
-            'customFields': [{'id': 'IEAVJOU5JUAAAACG', 'value': 'testValue'}]
+            'customFields': [{'id': 'DBCCBM5NACG3DEI5', 'value': 'testValue'}]
         }
 
     :param folder_or_project_id:    str, required       ID of folder or project to be deleted
@@ -435,16 +435,16 @@ def extract_folder_or_project_hierarchy(data, base_keys=None, additional_keys=No
     Given a dict as follows:
 
         [
-            {'id': 'IEAAB3DEI5M4RE5R', 'accountId': 'IEAAB3DE', 'title': 'folder_a', ..., 'level': 0},
-            {'id': 'IEAAB3DEI5M4RE6S', 'accountId': 'IEAAB3DE', 'title': 'folder_b', ..., 'level': 0},
+            {'id': 'DBCCBM5NACG3DEI5', 'accountId': 'FJDSKSA', 'title': 'folder_foo', ..., 'level': 0},
+            {'id': 'DBCCBM5NACG3DEI6', 'accountId': 'FJDSKSA', 'title': 'folder_bar', ..., 'level': 0},
             ...
         ]
 
     Returns as follows:
 
         [
-            {'id': 'IEAAB3DEI5M4RE5R', 'title': 'folder_a', 'level': 0},
-            {'id': 'IEAAB3DEI5M4RE6S', 'title': 'folder_b', 'level': 0},
+            {'id': 'DBCCBM5NACG3DEI5', 'title': 'folder_foo', 'level': 0},
+            {'id': 'DBCCBM5NACG3DEI6', 'title': 'folder_bar', 'level': 0},
             ...
         ]
 
@@ -476,12 +476,12 @@ def folder_level_map(folder_metadata, verbose=False):
     as follows:
 
         {
-            'IEAAB3DEI5M4RE5R': 0,
-            'IEAAB3DEI5M4RE6S': 0,
-            'IEAAB3DEI5M4RFCH': 1,
-            'IEAAB3DEI5M4RFHK': 0,
-            'IEAAB3DEI5M4RFH5': 1,
-            'IEAAB3DEI5M4RFNS': 2
+            'DBCCBM5NACG3DEI1': 0,
+            'DBCCBM5NACG3DEI2': 0,
+            'DBCCBM5NACG3DEI3': 1,
+            'DBCCBM5NACG3DEI4': 0,
+            'DBCCBM5NACG3DEI5': 1,
+            'DBCCBM5NACG3DEI6': 2
         }
 
     :param folder_metadata:     list, required          folder metadata list of dicts
@@ -502,9 +502,9 @@ def get_folder_or_project_dict(space_id, additional_keys=None, verbose=False):
     Returns a list of dicts as follows:
 
         [
-            {'id': 'IEAAB3DEI5M4KMIP', 'type': 'folder'},
-            {'id': 'IEAAB3DEI5M4RFOO', 'type': 'folder'},
-            {'id': 'IEAAB3DEI5NBKLPZ', 'type': 'project'},
+            {'id': 'DBCCBM5NACG3DEI6', 'type': 'folder'},
+            {'id': 'DBCCBM5NACG3DEI7', 'type': 'folder'},
+            {'id': 'DBCCBM5NACG3DEI8', 'type': 'project'},
             ...
         ]
 
@@ -584,24 +584,24 @@ def get_folder_or_project_metadata(space_id, get_projects=None, verbose=False):
 
         [
             {
-                'id': 'IEAAB3DEI5NBKJQW',
-                'accountId': 'IEAAB3DE',
+                'id': 'DBCCBM5NACG3DEI6',
+                'accountId': 'FJDSKSA',
                 'title': 'Test Project',
-                'createdDate': '2024-10-13T15:36:28Z',
-                'updatedDate': '2024-10-13T15:37:08Z',
+                'createdDate': '2023-10-15T12:36:28Z',
+                'updatedDate': '2023-10-15T12:37:08Z',
                 'description': '',
-                'sharedIds': ['KUAFMCAH', 'KUALDPDC', 'KUAP3YOD'],
-                'parentIds': ['IEAAB3DEI5M4RE5R'],
+                'sharedIds': ['FJDSKSA', 'FJDSKSB', 'FJDSKSC'],
+                'parentIds': ['DBCCBM5NACG3DEI6'],
                 'childIds': [],
                 'scope': 'WsFolder',
-                'permalink': 'https://www.wrike.com/open.htm?id=1511335446',
-                'workflowId': 'IEAAB3DEK7776E44',
+                'permalink': 'https://www.wrike.com/open.htm?id=12345',
+                'workflowId': 'DBCCBM5NACG3DEI6',
                 'project': {
-                    'authorId': 'KUALDPDC',
+                    'authorId': 'FJDSKSA',
                     'ownerIds': [],
                     'status': 'Custom',
-                    'customStatusId': 'IEAAB3DEJMAAAAAA',
-                    'createdDate': '2024-10-13T15:36:28Z'
+                    'customStatusId': 'DBCCBM5NACG3DEI6',
+                    'createdDate': '2023-10-15T12:36:28Z'
                 }
             },
             ...
@@ -609,12 +609,12 @@ def get_folder_or_project_metadata(space_id, get_projects=None, verbose=False):
 
     Using these dict and childIds, e.g.:
 
-        'childIds': ['IEAAB3DEI5M5NACG', ...]
+        'childIds': ['DBCCBM5NACG3DEI6', ...]
 
     create within each folder or project dict child and parent key-value pairs, as follows:
 
-        'child':  {'IEAAB3DEI5M5NACG': 'folder_1a', ...}
-        'parent': {'IEAAB3DEI5M5NACG': 'folder_a'}
+        'child':  {'DBCCBM5NACG3DEI5': 'folder_foo', ...}
+        'parent': {'DBCCBM5NACG3DEI6': 'folder_bar'}
 
     Using these, within each folder dict, add a folderLevel key-value for its position in folder hierarchy, as follows:
 
@@ -680,47 +680,47 @@ def update_folder(folder_id, title=None, description=None, add_parents=None, rem
 
     URL to pass to requests.post(), as follows:
 
-        https://www.wrike.com/api/v4/folders/IEAVJOU5I4AB5BKC
+        https://www.wrike.com/api/v4/folders/DBCCBM5NACG3DEI5
 
     Parameters to pass into this function, as follows:
 
-        folder_id = 'IEAVJOU5I4AB5BKC'
+        folder_id = 'DBCCBM5NACG3DEI5'
         title = 'Updated Folder Title'
         description = 'Updated folder description'
-        add_parents = ['IEAVJOU5I7777777']
-        remove_parents = ['IEAVJOU5I4AB5BKA']
-        add_shareds = ['KUAAAABF']
-        remove_shareds = ['KUAAAABG']
+        add_parents = ['DBCCBM5NACG3DEI5']
+        remove_parents = ['DBCCBM5NACG3DEI5']
+        add_shareds = ['FJDSKSA']
+        remove_shareds = ['FJDSKSA']
         metadata = [{'key': 'updatedMetaKey', 'value': 'updatedMetaValue'}]
-        custom_fields = [{'id': 'IEAVJOU5JUAAAACG', 'value': 'updatedValue'}]
+        custom_fields = [{'id': 'DBCCBM5NACG3DEI5', 'value': 'updatedValue'}]
         project = {
-            'ownersAdd': ['KUAAAABF'],
-            'ownersRemove': ['KUAAAABG'],
-            'startDate': '2024-09-17',
-            'endDate': '2024-09-24'
+            'ownersAdd': ['FJDSKSA'],
+            'ownersRemove': ['FJDSKSA'],
+            'startDate': '2023-09-15',
+            'endDate': '2023-09-22'
         }
-        user_access_roles = {'KUAAAABF': 'IEAVJOU5ND777777'}
+        user_access_roles = {'FJDSKSA': 'DBCCBM5NACG3DEI5'}
         with_invitations = True
 
     Returned API response IN JSON format, as follows:
 
         {
-            'id': 'IEAAB3DEI5M5NKRM',
-            'accountId': 'IEAAB3DE',
+            'id': 'DBCCBM5NACG3DEI5',
+            'accountId': 'FJDSKSA',
             'title': 'Updated Folder Title',
-            'createdDate': '2024-10-06T22:32:37Z',
-            'updatedDate': '2024-10-06T22:44:46Z',
+            'createdDate': '2023-10-02T11:32:37Z',
+            'updatedDate': '2023-10-02T11:44:46Z',
             'description': 'Updated folder description',
-            'sharedIds': ['KUAFMCAH', 'KUALDPDC', 'KUAP3YOD'],
-            'parentIds': ['IEAAB3DEI5M4KMIP'],
+            'sharedIds': ['FJDSKSA', 'FJDSKSB', 'FJDSKSC'],
+            'parentIds': ['DBCCBM5NACG3DEI5'],
             'childIds': [],
             'superParentIds': [],
             'scope': 'WsFolder',
             'hasAttachments': False,
-            'permalink': 'https://www.wrike.com/open.htm?id=1507240492',
-            'workflowId': 'IEAAB3DEK7776E44',
+            'permalink': 'https://www.wrike.com/open.htm?id=12345',
+            'workflowId': 'DBCCBM5NACG3DEI5',
             'metadata': [{'key': 'updatedMetaKey', 'value': 'updatedMetaValue'}],
-            'customFields': [{'id': 'IEAVJOU5JUAAAACG', 'value': 'updatedValue'}]
+            'customFields': [{'id': 'DBCCBM5NACG3DEI5', 'value': 'updatedValue'}]
         }
 
     :param folder_id:           str, required           ID of folder to be updated
@@ -736,7 +736,7 @@ def update_folder(folder_id, title=None, description=None, add_parents=None, rem
     :param user_access_roles:   dict, optional          user IDs and corresponding access roles
     :param with_invitations:    bool, optional          if True, include invitations in ownerIds and sharedIds list
     :param verbose:             bool, optional          if True, print status to terminal
-    :return:                    JSON                    API response, with details of updated folder
+    :return:                    JSON                    API response with details of updated folder
     """
 
     update_folder_url = WRIKE_BASE_URL + WRIKE_UPDATE_OR_DELETE_FOLDER_URL.format(folder_id)
@@ -785,42 +785,42 @@ def update_project(project_id, title=None, description=None, add_parents=None, r
 
     Parameters to pass into this function, as follows:
 
-        project_id = 'IEAVJOU5I4AB5BKC'
+        project_id = 'DBCCBM5NACG3DEI5'
         title = 'Updated Project Title'
         description = 'Updated project description'
-        add_parents = ['IEAVJOU5I7777777']
-        remove_parents = ['IEAVJOU5I4AB5BKA']
-        add_shareds = ['KUAAAABF']
-        remove_shareds = ['KUAAAABG']
+        add_parents = ['DBCCBM5NACG3DEI5']
+        remove_parents = ['DBCCBM5NACG3DEI5']
+        add_shareds = ['FJDSKSA']
+        remove_shareds = ['FJDSKSA']
         metadata = [{'key': 'updatedMetaKey', 'value': 'updatedMetaValue'}]
-        custom_fields = [{'id': 'IEAVJOU5JUAAAACG', 'value': 'updatedValue'}]
-        owners_add = ['KUAAAABF']
-        owners_remove = ['KUAAAABG']
-        custom_status_id = 'IEAVJOU5JMAAAAAA'
-        start_date = '2024-10-01'
-        end_date = '2024-10-15'
+        custom_fields = [{'id': 'DBCCBM5NACG3DEI5', 'value': 'updatedValue'}]
+        owners_add = ['FJDSKSA']
+        owners_remove = ['FJDSKSA']
+        custom_status_id = 'DBCCBM5NACG3DEI5'
+        start_date = '2023-09-02'
+        end_date = '2023-09-14'
         contract_type = 'Billable'
         budget = 5000
-        user_access_roles = {'KUAAAABF': 'IEAVJOU5ND777777'}
+        user_access_roles = {'FJDSKSA': 'DBCCBM5NACG3DEI5'}
         with_invitations = True
 
     Returned API response IN JSON format, as follows:
 
         {
-            'id': 'IEAAB3DEI5M5NKRM',
-            'accountId': 'IEAAB3DE',
+            'id': 'DBCCBM5NACG3DEI5',
+            'accountId': 'FJDSKSA',
             'title': 'Updated Project Title',
             'createdDate': '2024-10-06T22:32:37Z',
             'updatedDate': '2024-10-06T22:44:46Z',
             'description': 'Updated project description',
-            'sharedIds': ['KUAFMCAH', 'KUALDPDC', 'KUAP3YOD'],
-            'parentIds': ['IEAAB3DEI5M4KMIP'],
+            'sharedIds': ['FJDSKSA', 'FJDSKSB', 'FJDSKSC'],
+            'parentIds': ['DBCCBM5NACG3DEI5'],
             'childIds': [],
             'superParentIds': [],
             'scope': 'WsProject',
             'hasAttachments': False,
-            'permalink': 'https://www.wrike.com/open.htm?id=1507240492',
-            'workflowId': 'IEAAB3DEK7776E44',
+            'permalink': 'https://www.wrike.com/open.htm?id=12345',
+            'workflowId': 'DBCCBM5NACG3DEI5',
             'metadata': [
                 {
                     'key': 'updatedMetaKey',
@@ -829,27 +829,27 @@ def update_project(project_id, title=None, description=None, add_parents=None, r
             ],
             'customFields': [
                 {
-                    'id': 'IEAVJOU5JUAAAACG',
+                    'id': 'DBCCBM5NACG3DEI5',
                     'value': 'updatedValue'
                 }
             ],
             'project': {
-                'authorId': 'KUAAAABF',
-                'ownerIds': ['KUAAAABF'],
-                'customStatusId': 'IEAVJOU5JMAAAAAA',
-                'startDate': '2024-10-01',
-                'endDate': '2024-10-15',
+                'authorId': 'FJDSKSA',
+                'ownerIds': ['FJDSKSA'],
+                'customStatusId': 'DBCCBM5NACG3DEI5',
+                'startDate': '2023-03-18',
+                'endDate': '2024-05-19',
                 'contractType': 'Billable',
                 'budget': 5000,
-                'createdDate': '2024-10-06T22:32:37Z',
+                'createdDate': '2023-05-16T10:32:37Z',
                 'completedDate': null
             },
             'userAccessRoles': {
-                'KUAAAABG': [
-                    'IEAVJOU5ND777777'
+                'FJDSKSA': [
+                    'DBCCBM5NACG3DEI5'
                 ],
-                'KUAAAABF': [
-                    'IEAVJOU5ND777777'
+                'FJDSKSA': [
+                    'DBCCBM5NACG3DEI5'
                 ]
             }
         }

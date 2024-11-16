@@ -37,27 +37,27 @@ def get_user_types(return_all=False, verbose=False):
 
         [
             {
-                'id': 'IEAAB3DENH777777',
+                'id': 'DBCCBM5NACG3DEI9',
                 'title': 'Owner',
                 'description': 'Owner'
             },
             {
-                'id': 'IEAAB3DENH777776',
+                'id': 'DBCCBM5NACG3DEI9',
                 'title': 'Admin',
                 'description': 'Admin'
             },
             {
-                'id': 'IEAAB3DENH777775',
+                'id': 'DBCCBM5NACG3DEI9',
                 'title': 'Regular User',
                 'description': 'Regular User'
             },
             {
-                'id': 'IEAAB3DENH777774',
+                'id': 'DBCCBM5NACG3DEI9',
                 'title': 'External User',
                 'description': 'External User'
             },
             {
-                'id': 'IEAAB3DENH777773',
+                'id': 'DBCCBM5NACG3DEI9',
                 'title': 'Collaborator',
                 'description': 'Collaborator'
             }
@@ -119,13 +119,13 @@ def update_user(user_id, account_id, role, external=None, verbose=False):
 
         [
             {
-                'id': 'KUALDPDC',
+                'id': 'FJDSKSA',
                 'firstName': 'Matthew',
                 'lastName': 'Runde',
                 'type': 'Person',
                 'profiles': [
                     {
-                        'accountId': 'IEAAB3DE',
+                        'accountId': 'FJDSKSA',
                         'email': 'matthew@nicejacket.cc',
                         'role': 'User',
                         'external': False,
@@ -133,14 +133,14 @@ def update_user(user_id, account_id, role, external=None, verbose=False):
                         'owner': False
                     }
                 ],
-                'avatarUrl': 'https://www.wrike.com/avatars//36/26/Box_ff43a047_77-82_v1.png',
+                'avatarUrl': 'https://www.wrike.com/avatars/.../avatar.png',
                 'timezone': 'America/Los_Angeles',
                 'locale': 'en',
                 'deleted': False,
                 'me': True,
                 'title': 'Director',
                 'primaryEmail':
-                'mrunde@splicepm.com'
+                'matthew@nicejacket.cc'
             }
         ]
 

@@ -39,24 +39,24 @@ def get_audit_log(event_start=None, event_end=None, operations=None, page_size=N
 
         {
             'kind': 'auditLog',
-            'nextPageToken': 'AACTACY3YYQAAAXEM3ZC',
+            'nextPageToken': 'DBCCBM5NACG3DEI5',
             'responseSize': 100000,
             'data': [
                 {
-                    'id': 'IEBCC46DA4E55',
+                    'id': 'DBCCBM5NACG3DEI5',
                     'operation': 'TaskCreated',
-                    'userId': 'UDWKFOAG',
+                    'userId': 'FJDSKSA',
                     'userEmail': 'matthew@nicejacket.cc',
-                    'eventDate': '2023-10-17T22:55:51Z',
-                    'ipAddress': '44.255.128.242',
+                    'eventDate': '2023-03-12T12:44:51Z',
+                    'ipAddress': '194.34.128.42',
                     'objectType': 'Task',
                     'objectName': 'Order released',
-                    'objectId': 'IEBCC46DA4E55',
+                    'objectId': 'DBCCBM5NACG3DEI5',
                     'details': {
                         'Now Shared With Users': '',
                         'Now Shared With Teams': '',
-                        'Parent Folders': 'https://www.wrike.com/open.htm?id=1337275616',
-                        'Work Item Link': 'https://www.wrike.com/open.htm?id=1368492816',
+                        'Parent Folders': 'https://www.wrike.com/open.htm?id=12345',
+                        'Work Item Link': 'https://www.wrike.com/open.htm?id=12345',
                         'Work Item Type': 'Task'
                     }
                 },
@@ -168,7 +168,7 @@ def get_complete_audit_log(event_date=None, operations=None, page_size=100, max_
 
     The field 'details' is by default a dict, which appears as follows:
 
-        {'Prev Status': 'New', 'New Status': 'Completed', 'Work Item Link': 'https://www.wrike.com/open.htm?id=5992019'}
+        {'Prev Status': 'New', 'New Status': 'Completed', 'Work Item Link': 'https://www.wrike.com/open.htm?id=12345'}
 
     If reframe_audit_log=True, breaks dicts within DataFrame columns into their own columns, where the new column name
     is the key, and the data in the field is the dict's associated value.

@@ -19,8 +19,8 @@ def data_export_to_csv(data_export_dict, output_dir, tbl_prefix='', verbose=Fals
     Wrike dict should appear as follows:
 
         {
-            'attachment_file': 'https://storage.www.wrike.com/data_export/resource/548524081?accountId=61605',
-            'audit_log': 'https://storage.www.wrike.com/data_export/resource/548524081?accountId=61605',
+            'attachment_file': 'https://storage.www.wrike.com/data_export/resource/123456789?accountId=12345',
+            'audit_log': 'https://storage.www.wrike.com/data_export/resource/123456789?accountId=12345',
             ...
         }
 
@@ -66,8 +66,8 @@ def data_export_to_sql(data_export_dict, engine, if_exists, tbl_prefix='', verbo
     Wrike dict should appear as follows:
 
         {
-            'attachment_file': 'https://storage.www.wrike.com/data_export/resource/548524081?accountId=61605',
-            'audit_log': 'https://storage.www.wrike.com/data_export/resource/548524081?accountId=61605',
+            'attachment_file': 'https://storage.www.wrike.com/data_export/resource/123456789?accountId=12345',
+            'audit_log': 'https://storage.www.wrike.com/data_export/resource/123456789?accountId=12345',
             ...
         }
 
@@ -126,8 +126,8 @@ def get_data_export_urls(filtered_list=None, verbose=False):
     Returned API response in dictionary format:
 
         {
-            'attachment_file': 'https://storage.www.wrike.com/data_export/resource/540814852?accountId=60516',
-            'audit_log': 'https://storage.www.wrike.com/data_export/resource/540815828?accountId=60516',
+            'attachment_file': 'https://storage.www.wrike.com/data_export/resource/123456789?accountId=12345',
+            'audit_log': 'https://storage.www.wrike.com/data_export/resource/123456789?accountId=12345',
             ...
         }
 

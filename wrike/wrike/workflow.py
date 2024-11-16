@@ -38,13 +38,13 @@ def get_custom_statuses_by_id(workflow_id, verbose=False):
 
         [
             {
-                'id': 'IEAABD3EK3XOKC4U',
+                'id': 'DBCCBM5NACG3DEI9',
                 'name': 'Workspace',
                 'standard': False,
                 'hidden': False,
                 'customStatuses': [
                     {
-                        'id': 'IEAAB3DEJMCXOK4U',
+                        'id': 'DBCCBM5NACG3DEI9',
                         'name': 'New Invoice',
                         'standardName': False,
                         'color': 'Blue',
@@ -62,7 +62,7 @@ def get_custom_statuses_by_id(workflow_id, verbose=False):
 
         'customStatuses': [
             {
-                'id': 'IEAAB3DEJMCXOK4U',
+                'id': 'DBCCBM5NACG3DEI9',
                 'name': 'New Invoice',
                 'standardName': False,
                 'color': 'Blue',

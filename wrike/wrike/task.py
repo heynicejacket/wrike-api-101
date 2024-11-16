@@ -32,17 +32,17 @@ def add_level_to_tasks(tasks, folder_level_mapping, folder_id=None, level=None, 
         hierarchy                 folder  task
         ------------------------  ------  ----
         /wrike_space
-            task_0                         0
-            ../folder_a             0
-                task_1                     1
-                task_2                     1
-            ../folder_b             0
-                ../folder_b1        1
-                    task_3                 2
-            ../folder_c             0
-                ../folder_c1        1
-                    ../folder_c1a   2
-                        task_4             3
+            task                           0
+            ../folder               0
+                task                       1
+                task                       1
+            ../folder               0
+                ../folder           1
+                    task                   2
+            ../folder_blah          0
+                ../folder           1
+                    ../folder       2
+                        task               3
 
     When applying the folder hierarchy to tasks, etc., we must add 1 to differentiate from tasks at the space level;
     otherwise, tasks at the space level and tasks at the 0th folder level, will both appear to be at the space level.
@@ -83,9 +83,9 @@ def create_task(folder_id, title, description=None, status=None, importance=None
     Example usage:
 
         create_wrike_task(
-            folder_id='IEAVJOU5I4AB5BKC',
+            folder_id='DBCCBM5NACG3DEI5',
             title='New Task',
-            description='This is a new task description.',
+            description='A new task description.',
             ...
             verbose=True
         )
@@ -94,8 +94,8 @@ def create_task(folder_id, title, description=None, status=None, importance=None
 
         [
             {
-                'id': 'IEAAB3DEKRNDVX5I',
-                'accountId': 'IEAAB3DE',
+                'id': 'DBCCBM5NACG3DEI5',
+                'accountId': 'FJDSKSA',
                 'title': 'Test new task',
                 'description': 'Test task description.',
                 ...
@@ -164,35 +164,35 @@ def delete_task(task_id, verbose=False):
 
     URL to pass to requests.delete(), as follows:
 
-        https://www.wrike.com/api/v4/tasks/IEAVJOU5I4AB5BKC
+        https://www.wrike.com/api/v4/tasks/DBCCBM5NACG3DEI5
 
     Returned API response in JSON, as follows:
 
         [
             {
-                'id': 'IEAAB3DEKRNDV5IW',
-                'accountId': 'IEAAB3DE',
+                'id': 'DBCCBM5NACG3DEI5',
+                'accountId': 'FJDSKSA',
                 'title': 'Test new task',
                 'description': 'Test task description.',
                 'briefDescription': 'Test task description.',
-                'parentIds': ['IEAAB3DEI7777776'],
+                'parentIds': ['DBCCBM5NACG3DEI5'],
                 'superParentIds': [],
-                'sharedIds': ['KUAFMCAH', 'KUALDPDC', 'KUAP3YOD'],
+                'sharedIds': ['FJDSKSA', 'FJDSKSB', 'FJDSKSC'],
                 'responsibleIds': [],
                 'status': 'Active',
                 'importance': 'Normal',
-                'createdDate': '2024-10-16T22:14:48Z',
-                updatedDate': '2024-10-16T22:15:07Z',
+                'createdDate': '2023-02-12T11:24:48Z',
+                updatedDate': '2023-02-12T11:26:07Z',
                 'dates': {'type': 'Backlog'},
                 'scope': 'RbTask',
-                'authorIds': ['KUALDPDC'],
-                'customStatusId': 'IEAAB3DEJMAAAAAA',
+                'authorIds': ['FJDSKSA'],
+                'customStatusId': 'DBCCBM5NACG3DEI5',
                 'hasAttachments': False,
                 'attachmentCount': 0,
-                'permalink': 'https://www.wrike.com/open.htm?id=1513813270',
-                'priority': '6283d0008000000000004400',
+                'permalink': 'https://www.wrike.com/open.htm?id=12345',
+                'priority': '4256d00080000005236',
                 'followedByMe': True,
-                'followerIds': ['KUALDPDC'],
+                'followerIds': ['FJDSKSA'],
                 'superTaskIds': [],
                 'subTaskIds': [],
                 'dependencyIds': [],
@@ -223,19 +223,19 @@ def get_task_metadata(space_id=None, folder_id=None, slim_metadata=False, verbos
     If requesting all tasks in a space, returns a list of dicts as follows:
 
         [
-            {'id': 'IEAAB3DEKRNBKHFW', 'accountId': 'IEAAB3DE', 'title': 'task_0', ..., 'level': 0},
-            {'id': 'IEAAB3DEKRNBKJRK', 'accountId': 'IEAAB3DE', 'title': 'task_1', ..., 'level': 0},
+            {'id': 'DBCCBM5NACG3DEI5', 'accountId': 'FJDSKSA', 'title': 'task_foo', ..., 'level': 0},
+            {'id': 'DBCCBM5NACG3DEI6', 'accountId': 'FJDSKSA', 'title': 'task_bar', ..., 'level': 0},
             ...
-            {'id': 'IEAAB3DEKRNBKHGE', 'accountId': 'IEAAB3DE', 'title': 'task_d0', ..., 'level': 1}
+            {'id': 'DBCCBM5NACG3DEI9', 'accountId': 'FJDSKSA', 'title': 'task_baz', ..., 'level': 1}
         ]
 
     If slim_metadata = True, returns only the following fields:
 
         [
-            {'id': 'IEAAB3DEKRNBKHFW', 'title': 'task_0', 'level': 0},
-            {'id': 'IEAAB3DEKRNBKJRK', 'title': 'task_1', 'level': 0},
+            {'id': 'DBCCBM5NACG3DEI5', 'title': 'task_foo', 'level': 0},
+            {'id': 'DBCCBM5NACG3DEI6', 'title': 'task_bar', 'level': 0},
             ...
-            {'id': 'IEAAB3DEKRNBKHGE', 'title': 'task_d0', 'level': 1}
+            {'id': 'DBCCBM5NACG3DEI9', 'title': 'task_baz', 'level': 1}
         ]
 
     If space_id and folder_id are both None, returns all tasks in account.

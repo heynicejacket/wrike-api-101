@@ -97,7 +97,7 @@ def get_space_metadata(space_id='', return_all=False, verbose=False):
             'kind': 'spaces',
             'data': [
                 {
-                    'id': 'IEAAB3DEI5M4KMIP',
+                    'id': 'DBCCBM5NACG3DEI5',
                     ...
                 },
                 {
@@ -108,14 +108,14 @@ def get_space_metadata(space_id='', return_all=False, verbose=False):
 
     Metadata for each Space is as follows:
 
-        'id': 'IEANB3AEI56MGSS1',
+        'id': 'DBCCBM5NACG3DEI5',
         'title': 'Wrike Space',
         'avatarUrl': 'https://www.wrike.com/static/spaceicons2/v3/6/space-avatar.png',
         'accessType': 'Public',
         'archived': False,
-        'guestRoleId': 'IEAND3DEVD712645',
-        'defaultProjectWorkflowId': 'IEAABUQW23DIEK4E',
-        'defaultTaskWorkflowId': 'IEANEB3D1QUK4EX3'
+        'guestRoleId': 'DBCCBM5NACG3DEI5',
+        'defaultProjectWorkflowId': 'DBCCBM5NACG3DEI5',
+        'defaultTaskWorkflowId': 'DBCCBM5NACG3DEI5'
 
     :param space_id:            str, optional           Wrike space ID to retrieve metadata from; if '', return all spaces
     :param return_all:          bool, optional          if True, only return data dictionary

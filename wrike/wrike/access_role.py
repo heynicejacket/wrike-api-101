@@ -16,12 +16,12 @@ def get_access_roles(return_all=False, verbose=False):
 
         [
             {
-                'id': 'IEBCC46DTND555',
+                'id': 'DBCCBM5NACG3DEI5',
                 'title': 'Full',
                 'description': 'Can edit'
             },
             {
-                'id': 'IEBCC46DTND556',
+                'id': 'DBCCBM5NACG3DEI5',
                 'title': 'Editor',
                 'description': 'Most user rights available. Cannot share or delete items.'
             },

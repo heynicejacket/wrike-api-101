@@ -37,7 +37,7 @@ def update_contact(contact_id, metadata=None, custom_fields=None, current_bill_r
     :param current_cost_rate:   dict, optional          dict of user's cost rate
     :param job_role_id:         str, optional           ID of user's job role
     :param verbose:             bool, optional          if True, print status to terminal
-    :return:                    JSON                    API containing updated contact details
+    :return:                    JSON                    API response containing updated contact details
     """
 
     update_contact_url = WRIKE_BASE_URL + WRIKE_CONTACTS_URL + f'{contact_id}'

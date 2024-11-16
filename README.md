@@ -4,7 +4,7 @@
 
 My company onboarded Wrike in 2022, but the rollout was primarily left up to individual teams. As such, there was no uniform structure to the organization of spaces.
 
-This had its own advantages - teams weren't forced into structures that didn't "flow" the way their clients and processes worked - but it caused complications when my department was asked to retrieve this data off the back end.
+This had its own advantages - teams weren't forced into structures that didn't "flow" the way their clients and processes worked - but it exposed the non-hierarchical design of Wrike's back end, and caused complications when my department was asked to retrieve this data off said back end.
 
 GitHub had no repos. We started, and ended, with a very basic data export, dumping the entire Wrike database into a series of tables, day after day, handling a series of byzantine, infinitely recursive crosswalks on the SQL side.
 

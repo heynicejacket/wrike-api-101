@@ -139,10 +139,19 @@ def get_sql_col_types(engine, tbl, verbose=False):
     """
     Given a table, retrieve column types from the database.
 
+    Returned dict appears as follows:
+
+        {
+            'task_id': 'int',
+            'task_name': 'nvarchar',
+            'task_created': 'datetime',
+            'task_completed': 'bit'
+        }
+
     :param engine:              object, required        SQLAlchemy engine object used to connect to database
     :param tbl:                 str, required           name of table to push data to
     :param verbose:             bool, optional          if True, print status to terminal
-    :return:
+    :return:                    dict                    dict of column names and dtypes
     """
 
     existing_table_query = f'SELECT column_name, data_type FROM information_schema.columns WHERE table_name = \'{tbl}\''

@@ -25,11 +25,11 @@ def dataframe_to_json(df, unflatten=False, sep='_', verbose=False):
 
 def exclude_keys(data, keys_to_ignore):
     """
-    Helper function to leave keys intact if they match ignore_keys.
+    Helper function to leave keys intact if they match ignore_keys. Other keys will be removed.
 
-    :param data:
-    :param keys_to_ignore:
-    :return:
+    :param data:                dict, required          input dict to be filtered
+    :param keys_to_ignore:      list, required          list of keys to not remove from dict
+    :return:                    dict                    output filtered dict
     """
 
     if isinstance(data, list):

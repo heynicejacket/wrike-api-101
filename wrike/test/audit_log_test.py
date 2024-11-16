@@ -6,14 +6,6 @@ from wrike.wrike.audit_log import (
 
 
 # ===== example variables ============================================================================================
-verbose = True
-
-operations = ['TaskCreated']
-event_date = {
-    'start': '2023-02-01T07:51:44Z',
-    'end': '2023-02-28T07:51:44Z'
-}
-
 audit_reformat_data = {'id': ['DBCCBM5NACG3DEI9'],
         'operation': ['TaskStatusChanged'],
         'userId': ['FJDSKSA'],
@@ -30,6 +22,15 @@ audit_reformat_data = {'id': ['DBCCBM5NACG3DEI9'],
                 'Assignees': 'matthew@nicejacket.cc',
                 'Work Item Link': 'https://www.wrike.com/open.htm?id=12345'}]
         }
+
+event_date = {
+    'start': '2023-01-01T00:00:00Z',
+    'end': '2023-12-31T23:59:59Z'
+}
+
+operations = ['TaskCreated']
+
+verbose = True
 
 
 # ===== example usage ================================================================================================

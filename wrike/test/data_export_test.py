@@ -41,7 +41,7 @@ get_data_export_urls(
 data_export = get_data_export_urls(filtered_list=reporting_tables, verbose=verbose)
 data_export_to_csv(
     data_export_dict=data_export,
-    output_dir=f'C:/localtemp/',
+    output_dir=f'C:/path/to/save/',
     tbl_prefix='wrike_',
     verbose=verbose
 )

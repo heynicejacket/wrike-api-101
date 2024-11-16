@@ -18,9 +18,9 @@ with_urls = True
 
 # sample value returned from get_wrike_attachments_in_space(space_id=SPACE_ID, slim_metadata=True)
 test_json = [
-    {'id': 'IEBCC46DTD4A12', 'name': 'foo.txt', 'in_type': 'folder', 'in_type_title': 'folder_b'},
-    {'id': 'IEBCC46DTD4A34', 'name': 'bar.jpg', 'in_type': 'folder', 'in_type_title': 'folder_b'},
-    {'id': 'IEBCC46DTD4A56', 'name': 'baz.xlsx', 'in_type': 'folder', 'in_type_title': 'folder_a'}
+    {'id': 'DBCCBM5NACG3DEI5', 'name': 'foo.txt', 'in_type': 'folder', 'in_type_title': 'folder_foo'},
+    {'id': 'DBCCBM5NACG3DEI6', 'name': 'bar.jpg', 'in_type': 'folder', 'in_type_title': 'folder_bar'},
+    {'id': 'DBCCBM5NACG3DEI7', 'name': 'baz.xlsx', 'in_type': 'folder', 'in_type_title': 'folder_baz'}
 ]
 
 

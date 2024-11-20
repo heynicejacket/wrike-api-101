@@ -8,7 +8,7 @@ This had its own advantages - teams weren't forced into structures that didn't "
 
 GitHub had no repos. We started, and ended, with a very basic data export, dumping the entire Wrike database into a series of tables, day after day, handling a series of byzantine, infinitely recursive crosswalks on the SQL side.
 
-This was not acceptable - but all hours are billable, so I created my own account and built out this repo to help others like me who need to work with the Wrike API.
+Personally, this was not acceptable - but all hours are billable, so I created my own account and built out this repo to help others like me who need to work with the Wrike API.
 
 This, hopefully, should provide the necessary tools for both the experienced data engineer, and the novice just trying to get by, with the necessary functions to be dangerous. If I'm missing anything, please let me know by filing an issue.
 
